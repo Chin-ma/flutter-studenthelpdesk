@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/screens/login.dart';
+import 'package:flutter_ui/screens/signup.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -80,6 +81,26 @@ class GetStartedPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                 ),
+              ),
+              SizedBox(height: 10),
+              OutlinedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUpPage()),
+                  );
+                },
+                child: Text(
+                  'Sign Up',
+                  style: TextStyle(fontSize: 10, color: Colors.white),
+                ),
+                // style: OutlinedButton.styleFrom(
+                //   primary: Colors.white,
+                //   // onPrimary: Colors.indigo,
+                //   padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                //   shape: RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.circular(30.0),
+                // ),
               ),
             ],
           ),

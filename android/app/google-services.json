@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "713464571674",
+    "project_id": "stud-helpdesk",
+    "storage_bucket": "stud-helpdesk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713464571674:android:6e58c3f4b5b4d8dd672ea3",
+        "android_client_info": {
+          "package_name": "com.example.flutter_ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "713464571674-op76bld60qo4bspeenpecv84uk0iu55d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDcRQOXnWdiBLDfqFWlZWIFy0VNTtdqnw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "713464571674-op76bld60qo4bspeenpecv84uk0iu55d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
