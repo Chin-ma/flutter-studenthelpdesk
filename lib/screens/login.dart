@@ -1,10 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/screens/postScreen.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginScreen extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -15,7 +18,11 @@ class LoginScreen extends StatelessWidget {
         password: _passwordController.text,
       );
       if (userCredential.user != null) {
-        // Login Successfull
+        _saveUserDataToFirestore(userCredential.user);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => PostQueryScreen()),
+        );
       }
     } catch (e) {
       print('Error: $e');
@@ -50,8 +57,25 @@ class LoginScreen extends StatelessWidget {
         );
         final UserCredential userCredential = await _auth.signInWithCredential(credential);
         if (userCredential.user != null) {
-          // Navigation
+          _saveUserDataToFirestore(userCredential.user);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PostQueryScreen()),
+          );
         }
+      }
+    } catch (e) {
+      print('Error $e');
+    }
+  }
+
+  Future<void> _saveUserDataToFirestore(User? user) async {
+    try {
+      DocumentSnapshot snapshot = await _firestore.collection('users').doc(user!.uid).get();
+      if (!snapshot.exists) {
+        await _firestore.collection('users').doc(user!.uid).set({
+          'email': user!.email,
+        });
       }
     } catch (e) {
       print('Error $e');
