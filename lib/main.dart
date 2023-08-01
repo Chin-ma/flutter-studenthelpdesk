@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ui/screens/login.dart';
+// import 'package:flutter_ui/screens/login.dart';
 import 'package:flutter_ui/screens/signup.dart';
 
 void main() async {
@@ -24,7 +24,7 @@ class GetStartedPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -40,8 +40,8 @@ class GetStartedPage extends StatelessWidget {
                 'lib/images/_211eb5f7-24a8-4ea3-9539-0617ba898d98.jpeg', // Add your image here
                 height: 200,
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'Student HelpDesk',
                 style: TextStyle(
                   fontSize: 24,
@@ -49,9 +49,9 @@ class GetStartedPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40),
+              const SizedBox(height: 10),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 40),
                 child: Text(
                   'The most easiest way to anonymously post your queries and get the administrations reply to it.',
                   textAlign: TextAlign.center,
@@ -61,12 +61,12 @@ class GetStartedPage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context, 
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                    MaterialPageRoute(builder: (context) => SignUpScreen()),
                   );
                 },
                 child: Text(
@@ -76,31 +76,11 @@ class GetStartedPage extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   primary: Colors.white,
                   onPrimary: Colors.indigo,
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                 ),
-              ),
-              SizedBox(height: 10),
-              OutlinedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SignUpPage()),
-                  );
-                },
-                child: Text(
-                  'Sign Up',
-                  style: TextStyle(fontSize: 10, color: Colors.white),
-                ),
-                // style: OutlinedButton.styleFrom(
-                //   primary: Colors.white,
-                //   // onPrimary: Colors.indigo,
-                //   padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                //   shape: RoundedRectangleBorder(
-                //     borderRadius: BorderRadius.circular(30.0),
-                // ),
               ),
             ],
           ),
