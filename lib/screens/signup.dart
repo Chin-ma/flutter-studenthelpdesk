@@ -7,8 +7,8 @@ class SignUpScreen extends StatelessWidget {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   Future<void> _registerWithEmailAndPassword(BuildContext context) async {
     try {
@@ -70,10 +70,10 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign Up'),
+        title: const Text('Sign Up'),
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -98,10 +98,10 @@ class SignUpScreen extends StatelessWidget {
                       borderSide: BorderSide.none,
                     ),
                     contentPadding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextFormField(
                   controller: _passwordController,
                   obscureText: true,
@@ -114,29 +114,37 @@ class SignUpScreen extends StatelessWidget {
                       borderSide: BorderSide.none,
                     ),
                     contentPadding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () => _registerWithEmailAndPassword(context),
-                  child: Text(
-                    'Sign Up',
-                    style: TextStyle(fontSize: 18),
-                  ),
                   style: ElevatedButton.styleFrom(
                     primary: Colors.white,
                     onPrimary: Colors.indigo,
                     padding:
-                        EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                        const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
+                  ),
+                  child: const Text(
+                    'Sign Up',
+                    style: TextStyle(fontSize: 18),
                   ),
                 ),
                 const SizedBox(height: 10),
                 OutlinedButton(
                   onPressed: () => _registerWithGoogle(context),
+                  style: OutlinedButton.styleFrom(
+                    primary: Colors.white,
+                    side: const BorderSide(color: Colors.white, width: 2),
+                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                    ),
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -144,20 +152,12 @@ class SignUpScreen extends StatelessWidget {
                         'lib/images/google_logo.png',
                         height: 24,
                       ),
-                      SizedBox(height: 10),
-                      Text(
+                      const SizedBox(height: 10),
+                      const Text(
                         'Sign up with Google',
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                     ],
-                  ),
-                  style: OutlinedButton.styleFrom(
-                    primary: Colors.white,
-                    side: BorderSide(color: Colors.white, width: 2),
-                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -168,16 +168,16 @@ class SignUpScreen extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => LoginScreen()),
                     );
                   },
-                  child: Text(
-                    'Already have account? Login',
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
                   style: OutlinedButton.styleFrom(
                     primary: Colors.white,
                     padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
+                  ),
+                  child: const Text(
+                    'Already have account? Login',
+                    style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ),
               ],
