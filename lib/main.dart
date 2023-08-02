@@ -1,25 +1,42 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/screens/landing.dart';
 // import 'package:flutter_ui/screens/login.dart';
 import 'package:flutter_ui/screens/signup.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool showGetStartedPage = prefs.getBool('showGetStartedPage') ?? true;
+  runApp(MyApp(showGetStartedPage: showGetStartedPage));
 }
 
 class MyApp extends StatelessWidget {
+  final bool showGetStartedPage;
+  MyApp({required this.showGetStartedPage});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: GetStartedPage(),
+      home: showGetStartedPage ? GetStartedPage() : LandingScreen(),
     );
   }
 }
 
 class GetStartedPage extends StatelessWidget {
+  Future<void> _markGetStartedAsSeen(BuildContext context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('showGetStartedPage', false);
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LandingScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,12 +80,7 @@ class GetStartedPage extends StatelessWidget {
               ),
               const SizedBox(height: 30),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context, 
-                    MaterialPageRoute(builder: (context) => SignUpScreen()),
-                  );
-                },
+                onPressed: () => _markGetStartedAsSeen(context),
                 child: Text(
                   'Get Started',
                   style: TextStyle(fontSize: 18),

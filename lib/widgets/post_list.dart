@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/util/postDetails.dart';
 import 'package:flutter_ui/util/posts.dart';
 
 class PostList extends StatelessWidget {
@@ -14,8 +15,10 @@ class PostList extends StatelessWidget {
             itemBuilder: (context, index) {
               var postDoc = snapshot.data?.docs[index];
               var post = Post(
-                title: postDoc!['title'],
-                content: postDoc['content'],
+                postId: postDoc!.id,
+                title: postDoc['title'],
+                content: postDoc['content'], 
+                userId: postDoc['userId'],
               );
               return PostItem(post: post);
             },
@@ -43,6 +46,12 @@ class PostItem extends StatelessWidget {
     return ListTile(
       title: Text(post.title),
       subtitle: Text(post.content),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => PostDetails(post: post)),
+        );
+      },
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/screens/postEditScreen.dart';
 import 'package:flutter_ui/screens/postScreen.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -21,7 +22,7 @@ class LoginScreen extends StatelessWidget {
         _saveUserDataToFirestore(userCredential.user);
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => PostQueryScreen()),
+          MaterialPageRoute(builder: (context) => PostEditScreen()),
         );
       }
     } catch (e) {
