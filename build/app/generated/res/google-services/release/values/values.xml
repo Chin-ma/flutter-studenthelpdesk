@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">713464571674-v7gpbb9o2e570knel55tvrbl9g7nnvta.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">713464571674</string>
+    <string name="google_api_key" translatable="false">AIzaSyCDcRQOXnWdiBLDfqFWlZWIFy0VNTtdqnw</string>
+    <string name="google_app_id" translatable="false">1:713464571674:android:6e58c3f4b5b4d8dd672ea3</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCDcRQOXnWdiBLDfqFWlZWIFy0VNTtdqnw</string>
+    <string name="google_storage_bucket" translatable="false">stud-helpdesk.appspot.com</string>
+    <string name="project_id" translatable="false">stud-helpdesk</string>
+</resources>
