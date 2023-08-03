@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/screens/adminLoginScreen.dart';
 import 'package:flutter_ui/screens/login.dart';
 import 'package:flutter_ui/screens/postEditScreen.dart';
 import 'package:flutter_ui/screens/postScreen.dart';
@@ -98,6 +99,24 @@ class LandingScreen extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AdminLoginScreen()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.purple,
+                onPrimary: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+              ),
+              child: Text('Admin Login', style: TextStyle(fontSize: 18)),
+            )
           ],
         ),
       ),
