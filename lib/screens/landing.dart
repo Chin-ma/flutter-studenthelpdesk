@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui/screens/adminLanding.dart';
 import 'package:flutter_ui/screens/adminLoginScreen.dart';
 import 'package:flutter_ui/screens/login.dart';
 import 'package:flutter_ui/screens/postEditScreen.dart';
@@ -104,7 +105,7 @@ class LandingScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AdminLoginScreen()),
+                  MaterialPageRoute(builder: (context) => AdminLandingPage()),
                 );
               },
               style: ElevatedButton.styleFrom(

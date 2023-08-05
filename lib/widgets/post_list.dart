@@ -43,15 +43,19 @@ class PostItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(post.title),
-      subtitle: Text(post.content),
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => PostDetails(post: post)),
-        );
-      },
+    return Card(
+      elevation: 3,
+      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      child: ListTile(
+        title: Text(post.title),
+        subtitle: Text(post.content),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PostDetails(post: post))
+          );
+        },
+      ),
     );
   }
 }

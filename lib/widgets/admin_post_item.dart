@@ -13,8 +13,8 @@ class AdminPostItem extends StatelessWidget {
       elevation: 3,
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       child: ListTile(
-        title: Text(post!.title),
-        subtitle: Text(post!.content),
+        title: Text(post.title),
+        subtitle: Text(post.content),
         onTap: () {
           Navigator.push(
             context,
